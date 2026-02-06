@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İşyeri Yönetim Paneli</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>İşyeri Yönetim Paneli</h1>
+    <p>Satış, fatura, personel, bordro ve depo yönetimi</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>API Giriş</h2>
+      <label>API Token
+        <input id="apiToken" placeholder=".env içindeki API_TOKEN değerini girin" />
+      </label>
+      <button id="saveToken">Token Kaydet</button>
+    </section>
+
+    <section class="grid" id="dashboard"></section>
+
+    <section class="tabs">
+      <button class="tab active" data-tab="sales">Satış</button>
+      <button class="tab" data-tab="invoices">Fatura</button>
+      <button class="tab" data-tab="employees">Personel</button>
+      <button class="tab" data-tab="payroll">Bordro</button>
+      <button class="tab" data-tab="inventory">Depo/Stok</button>
+    </section>
+
+    <section class="card tab-content active" id="sales">
+      <h3>Satış Ekle</h3>
+      <form id="salesForm"></form>
+      <div id="salesList"></div>
+    </section>
+
+    <section class="card tab-content" id="invoices">
+      <h3>Fatura Ekle</h3>
+      <form id="invoicesForm"></form>
+      <div id="invoicesList"></div>
+    </section>
+
+    <section class="card tab-content" id="employees">
+      <h3>Personel Ekle</h3>
+      <form id="employeesForm"></form>
+      <div id="employeesList"></div>
+    </section>
+
+    <section class="card tab-content" id="payroll">
+      <h3>Bordro Kayıt</h3>
+      <form id="payrollForm"></form>
+      <div id="payrollList"></div>
+    </section>
+
+    <section class="card tab-content" id="inventory">
+      <h3>Stok Kartı</h3>
+      <form id="inventoryForm"></form>
+      <div id="inventoryList"></div>
+      <h3>Stok Hareketi</h3>
+      <form id="movementsForm"></form>
+      <div id="movementsList"></div>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>

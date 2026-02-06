@@ -102,3 +102,13 @@ GOOGLE_SHEETS_WEBHOOK_URL=https://script.google.com/macros/s/XXXX/exec
 
 ## Not
 Bu sürüm MVP'dir. Sonraki adımda kullanıcı rolleri, audit log, yedekleme, çoklu şube, e-fatura entegrasyonu eklenebilir.
+
+## 6) "Codex şu anda Codex dışında güncellenen PR'leri desteklemiyor" Hatası
+Bu hata genelde mevcut PR'a dışarıdan (Codex dışı) yeni commit geldiğinde görülür.
+
+Çözüm (özet):
+1. Mevcut PR'ı güncellemeye çalışmayın.
+2. Güncel branch üzerinden **yeni bir commit** oluşturun.
+3. Codex ile **yeni bir PR** açın.
+
+Pratik olarak bu depoda da aynı şekilde ilerlenmiştir: her yeni düzeltme için yeni commit ve yeni PR oluşturulur.

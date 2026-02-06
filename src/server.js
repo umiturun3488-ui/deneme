@@ -10,6 +10,7 @@ require('./init-db');
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
+const HOST = process.env.HOST || '0.0.0.0';
 const API_TOKEN = process.env.API_TOKEN || 'degistir-beni';
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || `http://localhost:${PORT}`;
 const GOOGLE_SHEETS_WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL || '';
@@ -265,6 +266,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Uygulama hazır: http://localhost:${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`Uygulama hazır: http://${HOST}:${PORT}`);
+  console.log(`Tarayıcıdan aç: http://localhost:${PORT}`);
 });

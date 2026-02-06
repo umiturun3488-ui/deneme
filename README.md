@@ -19,17 +19,47 @@ npm run init-db
 npm start
 ```
 
-Tarayıcı: `http://localhost:3000`
+Uygulama açıldıktan sonra tarayıcıdan:
+- `http://localhost:3000`
+- `http://localhost:3000/index.html`
 
-## Hızlı HTML Linkleri
-- Uygulama linki (önerilen): `http://localhost:3000`
-- Sadece HTML dosyası (doğrudan): `http://localhost:3000/index.html`
+## 2) “Bu siteye ulaşılamadı” Hatası İçin Hızlı Çözüm
+Aşağıdakileri sırayla kontrol edin:
 
-## 2) API Token
+1. Sunucu gerçekten çalışıyor mu?
+```bash
+npm start
+```
+Terminalde `Uygulama hazır` mesajını görmelisiniz.
+
+2. Port meşgul mü?
+```bash
+ss -ltnp | rg 3000
+```
+Eğer 3000 doluysa `.env` içinde `PORT=3001` yapıp tekrar başlatın.
+
+3. Host ayarı doğru mu?
+`.env` içinde şu olsun:
+```env
+HOST=0.0.0.0
+PORT=3000
+```
+
+4. Doğru adrese mi gidiyorsunuz?
+- Yerel bilgisayarda: `http://localhost:3000`
+- Aynı ağdaki başka cihazdan: `http://<sunucu_ip>:3000`
+
+5. İlk test için API sağlık kontrolü:
+```bash
+curl http://localhost:3000/api/health
+```
+`{"ok":true,...}` benzeri cevap dönmeli.
+
+## 3) API Token
 `.env` dosyasında `API_TOKEN` değerini belirleyin.
 Panel açılınca üstteki alana aynı token'ı girip **Token Kaydet** tıklayın.
 
-## 3) Google Sheets Anlık Aktarım
+## 4) Google Sheets Anlık Aktarım
 Bu proje, `GOOGLE_SHEETS_WEBHOOK_URL` tanımlıysa her yeni kaydı oraya JSON POST eder.
 
 ### Örnek Google Apps Script (Web App)
@@ -59,7 +89,7 @@ Deploy > New Deployment > Web App > URL'yi alıp `.env` içine yazın:
 GOOGLE_SHEETS_WEBHOOK_URL=https://script.google.com/macros/s/XXXX/exec
 ```
 
-## 4) API Uçları
+## 5) API Uçları
 - `GET/POST /api/sales`
 - `GET/POST /api/invoices`
 - `GET/POST /api/employees`

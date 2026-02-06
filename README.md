@@ -21,6 +21,10 @@ npm start
 
 Tarayıcı: `http://localhost:3000`
 
+## Hızlı HTML Linkleri
+- Uygulama linki (önerilen): `http://localhost:3000`
+- Sadece HTML dosyası (doğrudan): `http://localhost:3000/index.html`
+
 ## 2) API Token
 `.env` dosyasında `API_TOKEN` değerini belirleyin.
 Panel açılınca üstteki alana aynı token'ı girip **Token Kaydet** tıklayın.
